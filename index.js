@@ -56,6 +56,7 @@ const deleteData = async (url, id) => {
     }
 };
 
+// MÉTODOS:
 switch (method) {
     case "get":
         fetchData(url); 
