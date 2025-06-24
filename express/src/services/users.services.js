@@ -1,7 +1,12 @@
+import { User } from "../models/users.model.js";
 const users = [];
 
 const getAllUsers = () => {
     return users;
+}
+
+const getUserById = (id) => {
+    return users.find(user => user.id === id);
 }
 
 const createUser = (user) => {
@@ -12,7 +17,7 @@ const createUser = (user) => {
 }
 
 const updateUser = (id, name) => {
-    const userFound = users.find(user => user.id === id);
+    const userFound = getUserById(id);
     if (!userFound) {
         return null;
     }
@@ -21,4 +26,4 @@ const updateUser = (id, name) => {
         userFound;
 }
 
-export default { getAllUsers, createUser, updateUser };
+export default { getAllUsers, createUser, updateUser, getUserById };

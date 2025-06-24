@@ -45,8 +45,25 @@ const { name } = req.body;
     }
 }
 
+const getUserById = (req, res) => {
+    const { id } = req.params;
+    try {
+        const user = usersServices.getUserById(id);
+        if (!user) {
+            return res
+                .status(404)
+                .json({ error: 'Usuario no encontrado' });
+        }
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500)
+        .json({ message: 'Error al obtener el usuario', error: error.message });
+    }
+}
+
 export default {
     getAllUsers,
     createUser,
-    updateUser
+    updateUser,
+    getUserById
 }
