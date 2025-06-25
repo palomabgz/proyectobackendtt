@@ -1,5 +1,5 @@
 import { User } from "../models/users.model.js";
-const users = [];
+import users from "../config/db.js";
 
 const getAllUsers = () => {
     return users;

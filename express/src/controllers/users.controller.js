@@ -1,8 +1,18 @@
 import usersServices from '../services/users.services.js';
 
 const getAllUsers = (req, res) => {
-    const users = usersServices.getAllUsers();
-    res.status(200).json(users);
+    try {
+        const users = usersServices.getAllUsers();
+        if(users.length === 0) {
+            return res
+                .status(404)
+                .json({ error: 'No se encontraron usuarios' });
+        }
+    res.status(200).json({ message: 'Listado de usuarios', payload: users});
+} catch (error) {
+    res.status(500)
+    .json({ message: 'Error al obtener los usuarios', error: error.message });
+}
 }
 
 const createUser = (req, res) => {
