@@ -4,15 +4,19 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Paloma Belén González",
   "license": "ISC",
-  "description": "",
+  "description": "Proyecto BackEnd Talento Tech 2025",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
