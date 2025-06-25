@@ -18,6 +18,9 @@ app.use(cors(corsOptions));
 
 //routes
 app.use('/api/users', userRoutes);
+app.get('/buscar-producto', (req, res) => {
+    res.send('Buscador de productos');
+});
 
 //server
 app.listen(PORT, () => {
