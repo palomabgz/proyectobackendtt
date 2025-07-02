@@ -22,4 +22,4 @@ app.use('/api/users', userRoutes);
 //server
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en el puerto ${PORT}`);
-});  
+});

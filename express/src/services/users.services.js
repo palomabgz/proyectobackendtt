@@ -1,19 +1,21 @@
 import { User } from "../models/users.model.js";
-import users from "../config/db.js";
+import db from "../config/db.js";
 
-const getAllUsers = () => {
-    return users;
+const getAllUsers = async () => {
+    return await db.getAllUsers();
 }
 
 const getUserById = (id) => {
-    return users.find(user => user.id === id);
+    return db.users.find(user => user.id === id);
 }
 
-const createUser = (user) => {
-    const newUser = new User (user.name, user.email);
+const createUser = async (user) => {
+    const users = await db.getAllUsers();
+    const newUser = new User ({ name: user.name, email: user.email });
     users.push(newUser);
-    return
-        newUser;
+
+    await db.saveUsers(users);
+    return newUser;
 }
 
 const updateUser = (id, name) => {

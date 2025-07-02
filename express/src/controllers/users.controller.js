@@ -1,8 +1,9 @@
 import usersServices from '../services/users.services.js';
 
-const getAllUsers = (req, res) => {
+const getAllUsers = async (req, res) => {
     try {
-        const users = usersServices.getAllUsers();
+        const users = await usersServices.getAllUsers();
+        console.log(users);
         if(users.length === 0) {
             return res
                 .status(404)
@@ -15,7 +16,7 @@ const getAllUsers = (req, res) => {
 }
 }
 
-const createUser = (req, res) => {
+const createUser = async (req, res) => {
     const { name, email } = req.body;
     try {
         if (!name || !email) {
@@ -23,7 +24,7 @@ const createUser = (req, res) => {
                 .status(400)
                 .json({ error: 'Todos los campos son requeridos' });
     }
-    const newUser = usersServices.createUser({ name, email });
+    const newUser = await usersServices.createUser({ name, email });
     res.status(201).json(newUser);
 } catch (error) {
     res.status(500)
