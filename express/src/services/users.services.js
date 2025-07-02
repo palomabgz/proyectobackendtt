@@ -5,8 +5,9 @@ const getAllUsers = async () => {
     return await db.getAllUsers();
 }
 
-const getUserById = (id) => {
-    return db.users.find(user => user.id === id);
+const getUserById = async (id) => {
+    const users = await db.getAllUsers();
+    return users.find(user => user.id === id);
 }
 
 const createUser = async (user) => {
@@ -18,14 +19,29 @@ const createUser = async (user) => {
     return newUser;
 }
 
-const updateUser = (id, name) => {
-    const userFound = getUserById(id);
+const updateUser = async (id, name, email) => {
+    const users = await db.getAllUsers();
+    const userFound = users.find(user => user.id === id);
     if (!userFound) {
         return null;
     }
-    userFound.name = name;
-    return
-        userFound;
+    if (name !== undefined) {
+        userFound.user.name = name;
+    }
+
+    if (email !== undefined) {
+        userFound.user.email = email;
+    }
+
+    await db.saveUsers(users);
+
+    return userFound;
 }
 
-export default { getAllUsers, createUser, updateUser, getUserById };
+const deleteUser = async (id) => {
+    const users = await db.getAllUsers();
+    const usersFiltered = users.filter(user => user.id !== id);
+    await db.saveUsers(usersFiltered);
+}
+
+export default { getAllUsers, createUser, updateUser, getUserById, deleteUser };

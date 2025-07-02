@@ -31,9 +31,9 @@ const createUser = async (req, res) => {
     .json({ message: 'Error al crear el usuario', error: error.message });
 }}
 
-const updateUser = (req, res) => {
+const updateUser = async (req, res) => {
 const { id } = req.params;
-const { name } = req.body;
+const { name, email } = req.body;
 
     try {
         if (!id) {
@@ -41,7 +41,7 @@ const { name } = req.body;
                 .status(400)
                 .json({ error: 'El ID es requerido' });
         }
-        const user =usersServices.updateUser(id, name);
+        const user = await usersServices.updateUser(id, name, email);
 
         if (!user) {
             return res
@@ -56,10 +56,10 @@ const { name } = req.body;
     }
 }
 
-const getUserById = (req, res) => {
+const getUserById = async (req, res) => {
     const { id } = req.params;
     try {
-        const user = usersServices.getUserById(id);
+        const user = await usersServices.getUserById(id);
         if (!user) {
             return res
                 .status(404)
@@ -72,9 +72,27 @@ const getUserById = (req, res) => {
     }
 }
 
+const deleteUser = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const user = await usersServices.getUserById(id);
+        if (!user) {
+            return res
+                .status(404)
+                .json({ error: 'Usuario no encontrado' });
+        }
+        await usersServices.deleteUser(id);
+        res.status(200).json({ message: 'Usuario eliminado', user: user });
+    } catch (error) {
+        res.status(500)
+        .json({ message: 'Error al eliminar el usuario', error: error.message });
+    }
+}
+
 export default {
     getAllUsers,
     createUser,
     updateUser,
-    getUserById
+    getUserById,
+    deleteUser
 }

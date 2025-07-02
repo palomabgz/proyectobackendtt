@@ -1,22 +1,30 @@
 [
-    {
-        "name": "Paloma Belén González",
-        "email": "paloma@gmail.com"
-    },
-    {
-        "name": "Esteban Gomez",
-        "email": "esteban@gmail.com"
-    },
-    {
-        "name": "Nicolas Sánchez",
-        "email": "nicolas@gmail.com"
-    },
-    {
-        "name": "Matias Pérez",
-        "email": "matias@gmail.com"
-    },
-    {
-        "name": "Lorena Martinez",
-        "email": "matias@gmail.com"
+  {
+    "id": "ee9ace0d-c996-4116-bf8b-7d30332d2d52",
+    "user": {
+      "name": "Paloma González",
+      "email": "paloma@gmail.com"
     }
+  },
+  {
+    "id": "8430980b-e5b3-4db7-be77-b2395aed001d",
+    "user": {
+      "name": "Sofía Pérez",
+      "email": "sofifi@gmail.com"
+    }
+  },
+  {
+    "id": "e631f0b0-6c55-448c-824d-1215f0f4e0a1",
+    "user": {
+      "name": "Lucas Sánchez",
+      "email": "luquitas@gmail.com"
+    }
+  },
+  {
+    "id": "8cd15fe1-1fc2-4177-bc2f-7aa1871d2830",
+    "user": {
+      "name": "Pablo Paccot",
+      "email": "pablito@gmail.com"
+    }
+  }
 ]

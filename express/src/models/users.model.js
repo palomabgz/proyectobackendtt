@@ -1,9 +1,8 @@
 import { randomUUID } from "crypto";
 
 export class User {
-    constructor(name, email) {
+    constructor(user) {
         this.id = randomUUID();
-        this.name = name;
-        this.email = email;
+        this.user = user;
     }
 }
