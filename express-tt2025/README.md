@@ -46,7 +46,7 @@ Iniciar sesión o registrarse para obtener un token que luego se deberá enviar 
 - GET /api/products - Obtener producto por ID (protegida).
 - POST /api/products – Crear producto (protegida).
 - PUT /api/products - Actualizar producto (protegida).
-- ELTE /api/products - Eliminar producto (protegida).
+- DELETE /api/products - Eliminar producto (protegida).
 
 ## 👩‍💻 Autora:
 Paloma Belén González, Talento Tech 2025.
