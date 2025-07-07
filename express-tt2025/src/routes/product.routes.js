@@ -6,12 +6,12 @@ const router = Router();
 
 router.get('/', authenticateJWT, productController.getProducts);
 
-router.post('/', productController.createProduct);
+router.post('/', authenticateJWT, productController.createProduct);
 
-router.get('/:id', productController.getProductById);
+router.get('/:id', authenticateJWT, productController.getProductById);
 
-router.put('/:id', productController.productUpdated);
+router.put('/:id', authenticateJWT, productController.productUpdated);
 
-router.delete('/:id', productController.productDeleted);
+router.delete('/:id', authenticateJWT, productController.productDeleted);
 
 export default router;
