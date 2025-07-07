@@ -4,7 +4,7 @@ import { authenticateJWT } from "../middlewares/auth.js";
 
 const router = Router();
 
-router.get('/', authenticateJWT, productController.getProducts);
+router.get('/', productController.getProducts);
 
 router.post('/', authenticateJWT, productController.createProduct);
 
