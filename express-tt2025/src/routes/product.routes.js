@@ -1,9 +1,10 @@
 import { Router } from "express";
 import productController from "../controllers/product.controller.js";
+import { authenticateJWT } from "../middlewares/auth.js";
 
 const router = Router();
 
-router.get('/', productController.getProducts);
+router.get('/', authenticateJWT, productController.getProducts);
 
 router.post('/', productController.createProduct);
 
