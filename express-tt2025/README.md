@@ -40,13 +40,13 @@ Iniciar sesión o registrarse para obtener un token que luego se deberá enviar 
 ````
 
 ## 📌 Rutas del proyecto:
--POST /api/auth/login – Login de usuario.
--POST /api/auth/register - Registro de usuario.
--GET /api/products – Obtener productos.
--GET /api/products - Obtener producto por ID (protegida).
--POST /api/products – Crear producto (protegida).
--PUT /api/products - Actualizar producto (protegida).
--DELTE /api/products - Eliminar producto (protegida).
+- POST /api/auth/login – Login de usuario.
+- POST /api/auth/register - Registro de usuario.
+- GET /api/products – Obtener productos.
+- GET /api/products - Obtener producto por ID (protegida).
+- POST /api/products – Crear producto (protegida).
+- PUT /api/products - Actualizar producto (protegida).
+- ELTE /api/products - Eliminar producto (protegida).
 
 ## 👩‍💻 Autora:
 Paloma Belén González, Talento Tech 2025.
